@@ -1,16 +1,15 @@
-
 import { useState, useEffect } from "react";
 import { Clock, DollarSign, MessageCircle, BookOpen, Zap } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const BenefitItem = ({ icon: Icon, title, description, delay }) => {
   return (
-    <div className="flex flex-col items-center p-6 reveal" style={{ transitionDelay: `${delay}ms` }}>
+    <div className="flex flex-col items-center p-6 reveal text-center" style={{ transitionDelay: `${delay}ms` }}>
       <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
         <Icon className="w-6 h-6 text-primary" />
       </div>
       <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
-      <p className="text-gray-600 text-center">{description}</p>
+      <p className="text-gray-600">{description}</p>
     </div>
   );
 };
@@ -83,7 +82,7 @@ const Benefits = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {benefits.map((benefit, index) => (
-            <div key={index} className={isVisible ? 'reveal active' : 'reveal'}>
+            <div key={index} className={`flex justify-center ${isVisible ? 'reveal active' : 'reveal'}`}>
               <BenefitItem
                 icon={benefit.icon}
                 title={benefit.title}
